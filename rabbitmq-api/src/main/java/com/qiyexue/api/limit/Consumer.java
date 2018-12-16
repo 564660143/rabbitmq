@@ -38,6 +38,7 @@ public class Consumer {
         // 6. 绑定队列和Exchange
         channel.queueBind(queueName, exchangeName, routingKey);
 
+        // 表示不限制消息大小, 一次只处理一条消息, 限制只是当前消费者有效
         channel.basicQos(0, 1, false);
 
         // 7. 设置消费者为自定义的消费者, 要进行限流必须关闭自动签收
