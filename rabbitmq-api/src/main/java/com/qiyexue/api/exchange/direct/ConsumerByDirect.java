@@ -1,12 +1,9 @@
-package com.qiyexue.exchange.direct;
+package com.qiyexue.api.exchange.direct;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.QueueingConsumer;
-
-import java.io.IOException;
-import java.util.concurrent.TimeoutException;
 
 /**
  * Direct模式消费者

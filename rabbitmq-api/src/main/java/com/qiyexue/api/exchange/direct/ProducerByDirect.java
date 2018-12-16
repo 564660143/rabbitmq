@@ -1,4 +1,4 @@
-package com.qiyexue.exchange.direct;
+package com.qiyexue.api.exchange.direct;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;

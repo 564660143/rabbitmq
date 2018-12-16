@@ -1,4 +1,4 @@
-package com.qiyexue.message;
+package com.qiyexue.api.message;
 
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;

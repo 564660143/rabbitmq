@@ -1,4 +1,4 @@
-package com.qiyexue.exchange.fanout;
+package com.qiyexue.api.exchange.fanout;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;

@@ -1,4 +1,4 @@
-package com.qiyexue.returnlistener;
+package com.qiyexue.api.returnlistener;
 
 import com.rabbitmq.client.*;
 

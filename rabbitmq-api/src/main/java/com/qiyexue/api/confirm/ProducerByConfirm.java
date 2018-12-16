@@ -1,4 +1,4 @@
-package com.qiyexue.confirm;
+package com.qiyexue.api.confirm;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.ConfirmListener;
