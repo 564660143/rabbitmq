@@ -8,7 +8,7 @@ import com.rabbitmq.client.ConnectionFactory;
  * fanout模式生产者
  *
  * @author 七夜雪
- * @create 2018-12-14 20:36
+ * @date 2018-12-14 20:36
  */
 public class ProducerByFanout {
 

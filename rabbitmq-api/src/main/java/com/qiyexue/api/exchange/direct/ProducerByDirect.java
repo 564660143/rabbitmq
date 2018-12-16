@@ -11,7 +11,7 @@ import java.util.concurrent.TimeoutException;
  * Direct模式的生产者
  *
  * @author 七夜雪
- * @create 2018-12-13 22:00
+ * @date 2018-12-13 22:00
  */
 public class ProducerByDirect {
 

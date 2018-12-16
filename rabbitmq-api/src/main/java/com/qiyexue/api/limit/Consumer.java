@@ -8,13 +8,13 @@ import com.rabbitmq.client.ConnectionFactory;
  * 消费者
  *
  * @author 七夜雪
- * @create 2018-12-15 20:07
+ * @date 2018-12-15 20:07
  */
 public class Consumer {
 
     public static void main(String[] args) throws Exception {
         // 1. 创建连接工厂并设置属性
-        ConnectionFactory factory = new ConnectionFactory();;
+        ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("192.168.72.138");
         factory.setPort(5672);
         factory.setVirtualHost("/");

@@ -9,7 +9,7 @@ import com.rabbitmq.client.QueueingConsumer;
  * Confirm消息确认的生产者
  *
  * @author 七夜雪
- * @create 2018-12-15 16:19
+ * @date 2018-12-15 16:19
  */
 public class ConsumerByConfirm {
 

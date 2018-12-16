@@ -11,7 +11,7 @@ import java.util.concurrent.TimeoutException;
  * 生产者
  *
  * @author 七夜雪
- * @create 2018-12-13 20:43
+ * @date 2018-12-13 20:43
  */
 public class Producer {
 

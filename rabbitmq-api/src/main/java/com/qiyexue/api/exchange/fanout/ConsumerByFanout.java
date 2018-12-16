@@ -9,7 +9,7 @@ import com.rabbitmq.client.QueueingConsumer;
  * Fanout模式消费者
  *
  * @author 七夜雪
- * @create 2018-12-14 20:40
+ * @date 2018-12-14 20:40
  */
 public class ConsumerByFanout {
 

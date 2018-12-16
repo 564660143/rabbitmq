@@ -11,7 +11,7 @@ import java.util.concurrent.TimeoutException;
  * Topic模式生产者
  *
  * @author 七夜雪
- * @create 2018-12-14 8:07
+ * @date 2018-12-14 8:07
  */
 public class ProducerByTopic {
 

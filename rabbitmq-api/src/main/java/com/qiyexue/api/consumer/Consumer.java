@@ -9,7 +9,7 @@ import com.rabbitmq.client.QueueingConsumer;
  * 消费者
  *
  * @author 七夜雪
- * @create 2018-12-15 20:07
+ * @date 2018-12-15 20:07
  */
 public class Consumer {
 

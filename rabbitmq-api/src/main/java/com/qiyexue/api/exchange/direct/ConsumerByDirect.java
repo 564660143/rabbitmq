@@ -9,7 +9,7 @@ import com.rabbitmq.client.QueueingConsumer;
  * Direct模式消费者
  *
  * @author 七夜雪
- * @create 2018-12-13 22:01
+ * @date 2018-12-13 22:01
  */
 public class ConsumerByDirect {
 
