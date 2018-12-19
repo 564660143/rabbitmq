@@ -10,5 +10,6 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>rabbitmq-api</module>
+        <module>rabbitmq-spring</module>
     </modules>
 </project>

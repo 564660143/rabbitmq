@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+     http://www.springframework.org/schema/rabbit
+     http://www.springframework.org/schema/rabbit/spring-rabbit-1.7.xsd">
+    <!--配置ConnectionFactory, 指定连接rabbitMQ的参数-->
+    <rabbit:connection-factory id="connectionFactory" host="192.168.72.138" port="5672"
+                               virtual-host="/" username="guest" password="guest"/>
+
+    <!--指定RabbitAdmin, auto-startup默认为true-->
+    <rabbit:admin id="rabbitAdmin" connection-factory="connectionFactory"/>
+
+    <!--声明direct模式exchange-->
+    <!--<rabbit:direct-exchange name="test_spring_direct_exchange" durable="true"
+                            auto-delete="false">
+        <rabbit:bindings>
+            <rabbit:binding queue="test_spring_direct_queue" key="test_spring_direct_queue"></rabbit:binding>
+        </rabbit:bindings>
+    </rabbit:direct-exchange>-->
+
+    <!--声明topic模式exchange-->
+    <!--<rabbit:topic-exchange name="test_spring_topic_exchange" durable="true"
+                           auto-delete="false">
+        <rabbit:bindings>
+            <rabbit:binding queue="test_spring_topic_queue" pattern="topic.spring.*" ></rabbit:binding>
+        </rabbit:bindings>
+    </rabbit:topic-exchange>-->
+
+    <!--声明fanout模式exchange-->
+    <!--<rabbit:fanout-exchange name="test_spring_fanout_exchange" durable="true"
+                            auto-delete="false">
+        <rabbit:bindings>
+            <rabbit:binding queue="test_spring_fanout_queue"></rabbit:binding>
+        </rabbit:bindings>
+    </rabbit:fanout-exchange>-->
+
+    <!--声明消息队列-->
+    <!--<rabbit:queue name="test_spring_direct_queue" durable="true" exclusive="false"
+                  auto-delete="false">
+    </rabbit:queue>
+    <rabbit:queue name="test_spring_topic_queue" durable="true" exclusive="false"
+                  auto-delete="false">
+    </rabbit:queue>
+    <rabbit:queue name="test_spring_fanout_queue" durable="true" exclusive="false"
+                  auto-delete="false">
+    </rabbit:queue>-->
+
+</beans>
