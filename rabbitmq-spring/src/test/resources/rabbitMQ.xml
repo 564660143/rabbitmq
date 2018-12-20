@@ -26,8 +26,35 @@
         <constructor-arg ref="connectionFactory"/>
     </bean>
 
+    <!--声明topic模式exchange-->
+    <rabbit:topic-exchange name="topic002" durable="true"
+                           auto-delete="false">
+        <!--声明exchange和queue之间的绑定-->
+        <rabbit:bindings>
+            <rabbit:binding pattern="huangquan.*" queue="queue002"></rabbit:binding>
+        </rabbit:bindings>
+    </rabbit:topic-exchange>
+    <rabbit:queue name="queue002" durable="true" exclusive="false"
+                  auto-delete="false">
+    </rabbit:queue>
 
+    <!--声明direct模式exchange-->
+    <rabbit:direct-exchange name="direct003" durable="true" auto-delete="false">
+        <!--声明exchange和queue之间的绑定-->
+        <rabbit:bindings>
+            <rabbit:binding queue="queue003" key="hongchen"></rabbit:binding>
+        </rabbit:bindings>
+    </rabbit:direct-exchange>
+    <rabbit:queue name="queue003" durable="true" exclusive="false"
+                  auto-delete="false">
+    </rabbit:queue>
 
+    <!--方式一 : 使用rabbit:template标签配置-->
+    <!--<rabbit:template id="rabbitTemplate" connection-factory="connectionFactory"/>-->
+    <!--方式二 : 使用普通Spring Bean方式配置-->
+    <bean id="rabbitTemlate" class="org.springframework.amqp.rabbit.core.RabbitTemplate">
+        <constructor-arg ref="connectionFactory"></constructor-arg>
+    </bean>
 
 
     <!--声明direct模式exchange-->

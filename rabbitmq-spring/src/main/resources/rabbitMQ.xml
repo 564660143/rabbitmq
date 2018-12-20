@@ -12,13 +12,7 @@
     <!--指定RabbitAdmin, auto-startup默认为true-->
     <rabbit:admin id="rabbitAdmin" connection-factory="connectionFactory"/>
 
-    <!--声明direct模式exchange-->
-    <!--<rabbit:direct-exchange name="test_spring_direct_exchange" durable="true"
-                            auto-delete="false">
-        <rabbit:bindings>
-            <rabbit:binding queue="test_spring_direct_queue" key="test_spring_direct_queue"></rabbit:binding>
-        </rabbit:bindings>
-    </rabbit:direct-exchange>-->
+
 
     <!--声明topic模式exchange-->
     <!--<rabbit:topic-exchange name="test_spring_topic_exchange" durable="true"

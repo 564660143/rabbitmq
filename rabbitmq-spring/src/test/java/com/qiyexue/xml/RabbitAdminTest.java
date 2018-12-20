@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.core.RabbitAdmin;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -44,4 +45,16 @@ public class RabbitAdminTest {
                         .to(new FanoutExchange("test_spring_fanout_exchange", false, false)));
 
     }
+
+    @Autowired
+    private RabbitTemplate rabbitTemplate;
+
+    /**
+     * 测试RabbitTemplate
+     */
+    @Test
+    public void testTemplate(){
+        System.out.println(rabbitTemplate);
+    }
+
 }
