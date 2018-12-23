@@ -82,9 +82,20 @@
         <property name="concurrentConsumers" value="1"/>
         <property name="defaultRequeueRejected" value="false"/>
         <property name="consumerTagStrategy" ref="myConsumerTag"/>
-        <property name="messageListener" ref="myMessageListener"/>
+        <!--<property name="messageListener" ref="myMessageListener"/>-->
+        <!--使用MessageListenerAdapter-->
+        <property name="messageListener" ref="messageListenerAdapter"/>
         <property name="queueNames" value="queue001,queue002,queue003"/>
     </bean>
+
+    <!--使用MessageListenerAdapter-->
+    <bean id="messageListenerAdapter"
+          class="org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter">
+        <constructor-arg>
+            <ref bean="messageDelegate"/>
+        </constructor-arg>
+    </bean>
+    <bean id="messageDelegate" class="com.qiyexue.adapter.MessageDelegate"/>
 
 
     <!--声明direct模式exchange-->
