@@ -2,6 +2,7 @@ package com.qiyexue.xml;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.amqp.AmqpException;
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -54,7 +55,26 @@ public class RabbitAdminTest {
      */
     @Test
     public void testTemplate(){
-        System.out.println(rabbitTemplate);
+        // 设置Message属性
+        MessageProperties messageProperties = new MessageProperties();
+        messageProperties.getHeaders().put("name", "七夜雪");
+        messageProperties.getHeaders().put("age", 18);
+        Message message = new Message("听雪楼中听雪落".getBytes(), messageProperties);
+        // 使用Send方法必须传入message类型
+        rabbitTemplate.send("topic001", "biluo.test", message);
+
+        // 使用convertAndSend方法, 可以使用String类型, 或者Object类型消息, 会自动转换
+        rabbitTemplate.convertAndSend("topic002", "huangquan.test", "上穷碧落下黄泉", new MessagePostProcessor() {
+            @Override
+            public Message postProcessMessage(Message message) throws AmqpException {
+                System.out.println("----------添加额外设置------------");
+                message.getMessageProperties().getHeaders().put("name", "黄泉");
+                message.getMessageProperties().getHeaders().put("company", "听雪楼");
+                return message;
+            }
+        });
+
+
     }
 
 }

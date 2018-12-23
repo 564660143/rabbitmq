@@ -56,6 +56,36 @@
         <constructor-arg ref="connectionFactory"></constructor-arg>
     </bean>
 
+    <!--配置ConsumerTag-->
+    <bean id="myConsumerTag" class="com.qiyexue.xml.MyConsumerTagStrategy"/>
+
+    <bean id="myMessageListener" class="com.qiyexue.xml.MyMessageListener"/>
+
+    <!--方法一 : 使用rabbit:listener-container标签设置listener-container-->
+    <!--<rabbit:listener-container connection-factory="connectionFactory"-->
+                               <!--auto-startup="true"-->
+                               <!--acknowledge="auto"-->
+                               <!--max-concurrency="5"-->
+                               <!--concurrency="1"-->
+                               <!--requeue-rejected="false">-->
+
+        <!--&lt;!&ndash;使用queue-names="queue001"也可以, 但是queues和queue-names不能同时使用&ndash;&gt;-->
+        <!--<rabbit:listener ref="myMessageListener" queues="queue002,queue003"/>-->
+    <!--</rabbit:listener-container>-->
+
+    <!--方法二 : 使用普通Spring Bean方式设置MessageListenerContainer-->
+    <bean id="simpleMessageListenerContainer"
+          class="org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer">
+        <property name="connectionFactory" ref="connectionFactory"/>
+        <property name="autoStartup" value="true"/>
+        <property name="acknowledgeMode" value="AUTO"/>
+        <property name="concurrentConsumers" value="1"/>
+        <property name="defaultRequeueRejected" value="false"/>
+        <property name="consumerTagStrategy" ref="myConsumerTag"/>
+        <property name="messageListener" ref="myMessageListener"/>
+        <property name="queueNames" value="queue001,queue002,queue003"/>
+    </bean>
+
 
     <!--声明direct模式exchange-->
     <!--<rabbit:direct-exchange name="test_spring_direct_exchange" durable="true"
