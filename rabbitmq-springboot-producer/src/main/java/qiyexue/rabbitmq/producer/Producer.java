@@ -7,6 +7,7 @@ import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageHeaders;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Component;
+import qiyexue.rabbitmq.bean.Order;
 
 import java.util.Map;
 
@@ -51,6 +52,14 @@ public class Producer {
         rabbitTemplate.setReturnCallback(returnCallback);
         CorrelationData correlationData = new CorrelationData("123456789");
         rabbitTemplate.convertAndSend("springboot", "springboot.test", msg, correlationData);
+    }
+
+    // 发送java类消息
+    public void sendOrderMsg(Order order) {
+        rabbitTemplate.setConfirmCallback(confirmCallback);
+        rabbitTemplate.setReturnCallback(returnCallback);
+        CorrelationData correlationData = new CorrelationData("654321");
+        rabbitTemplate.convertAndSend("springboot", "springboot.abc", order, correlationData);
     }
 
 }
